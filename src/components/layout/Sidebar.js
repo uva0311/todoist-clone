@@ -4,7 +4,7 @@ import {
   FaInbox,
   FaRegCalendarAlt,
   FaRegCalendar
-} from 'react-icons/fax';
+} from 'react-icons/fa';
 
 export const Sidebar = () => {
   return (
