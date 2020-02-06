@@ -44,7 +44,9 @@ export const AddProject = ({ shouldShow = false }) => {
             data-testid='add-project__submit'
             type='button'
             onClick={() => addProject()}
-          />
+          >
+            Add Project
+          </button>
           <span
             className='add-project__cancel'
             data-testid='hide-project-overlay'
