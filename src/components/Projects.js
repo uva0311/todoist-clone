@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { useSelectedProjectValue, useProjectsValue } from '../context';
+import { useSelectedProjectValue, useProjectValue } from '../context';
+import { IndividualProject } from './individualProject';
 
 export const Projects = ({ activeValue = null }) => {
   const [active, setActive] = useState(activeValue);
   const { setSelectedProject } = useSelectedProjectValue();
-  const { projects } = useProjectsValue();
+  const { projects } = useProjectValue();
 
   return (
     projects &&
@@ -18,12 +19,16 @@ export const Projects = ({ activeValue = null }) => {
             ? 'active sidebar__project'
             : 'sidebar__project'
         }
+        onKeyDown={() => {
+          setActive(project.projectId);
+          setSelectedProject(project.projectId);
+        }}
         onClick={() => {
           setActive(project.projectId);
           setSelectedProject(project.projectId);
         }}
       >
-        I am a project
+        <IndividualProject project={project} />
       </li>
     ))
   );
