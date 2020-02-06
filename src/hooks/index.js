@@ -27,12 +27,10 @@ export const useTasks = selectedProject => {
         : unsubscribe;
 
     unsubscribe = unsubscribe.onSnapshot(snapshot => {
-      const newTasks = snapshot.docs.map(
-        task({
-          id: task.id,
-          ...task.data()
-        })
-      );
+      const newTasks = snapshot.docs.map(task => ({
+        id: task.id,
+        ...task.data()
+      }));
 
       setTasks(
         selectedProject === 'NEXT_7'
@@ -44,7 +42,7 @@ export const useTasks = selectedProject => {
           : newTasks.filter(task => task.archived !== true)
       );
 
-      setArchivedTasks(newTasks.filter(task => task.archived == true));
+      setArchivedTasks(newTasks.filter(task => task.archived === true));
     });
 
     return () => unsubscribe();
@@ -55,7 +53,7 @@ export const useTasks = selectedProject => {
 
 ////////////////////////////////////////////////////////////
 
-export const userProjects = () => {
+export const useProjects = () => {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
@@ -76,4 +74,6 @@ export const userProjects = () => {
         }
       });
   }, [projects]);
+
+  return { projects, setProjects };
 };
