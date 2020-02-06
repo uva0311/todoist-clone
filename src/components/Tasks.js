@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Checkbox } from './Checkbox';
 import { useTasks } from '../hooks';
 import { collatedTasks } from '../constants';
@@ -10,13 +10,13 @@ export const Tasks = () => {
   const { projects } = useProjectValue();
   const { tasks } = useTasks(selectedProject);
 
-  const projectName = '';
+  let projectName = '';
 
-  if (projectss && selectedProject && !collatedTasksExist(selectedProject)) {
+  if (projects && selectedProject && !collatedTasksExist(selectedProject)) {
     projectName = getTitle(projects, selectedProject).name;
   }
 
-  if (collatedTasks(selectedProject) && selectedProject) {
+  if (collatedTasksExist(selectedProject) && selectedProject) {
     projectName = getCollatedTitle(collatedTasks, selectedProject).name;
   }
 
@@ -27,7 +27,7 @@ export const Tasks = () => {
   return (
     <div className='tasks' data-testid='tasks'>
       <h2 data-testid='project-name'>{projectName}</h2>
-      <ul className='task__list'>
+      <ul className='tasks__list'>
         {tasks.map(task => (
           <li key={`${task.id}`}>
             <Checkbox id={task.id} />
