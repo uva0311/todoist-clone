@@ -70,7 +70,7 @@ export const AddTasks = ({
       )}
 
       {(showMain || showQuickAddTask) && (
-        <div className='add-tasl__main' data-testid='add-task-main'>
+        <div className='add-task__main' data-testid='add-task-main'>
           {showQuickAddTask && (
             <>
               <div data-testid='quick-add-task'>
@@ -93,7 +93,7 @@ export const AddTasks = ({
           <p>Task Date here</p>
           <input
             className='add-task__content'
-            data-testid='add-tasl-content'
+            data-testid='add-task-content'
             type='text'
             value={task}
             onChange={e => setTask(e.target.value)}
@@ -118,7 +118,20 @@ export const AddTasks = ({
               Cancel
             </span>
           )}
-          <span></span>
+          <span
+            className='add-task__project'
+            data-testid='show-project-overlay'
+            onClick={() => setShowProjectOverlay(!showProjectOverlay)}
+          >
+            <FaRegListAlt />
+          </span>
+          <span
+            className='add-task__date'
+            data-testid='show-task-overlay'
+            onClick={() => setShowTaskDate(!showTaskDate)}
+          >
+            <FaRegCalendarAlt />
+          </span>
         </div>
       )}
     </div>
