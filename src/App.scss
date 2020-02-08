@@ -5,8 +5,9 @@ html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-
-* *:before *:after {
+*,
+*:before,
+*:after {
   -webkit-box-sizing: inherit;
   box-sizing: inherit;
 }
@@ -143,7 +144,6 @@ $generic-bg: #db4c3f;
 
 /* Header
   ============================================ */
-
 header {
   border-bottom: solid 1px #ca2100;
   background-color: $generic-bg;
@@ -673,7 +673,7 @@ header {
 }
 
 /* Project Overlay
-    ============================================ */
+  ============================================ */
 .project-overlay {
   @include box-overlay();
   background-color: white;
