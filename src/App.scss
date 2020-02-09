@@ -76,7 +76,7 @@ $generic-bg: #db4c3f;
 @mixin btn($width) {
   width: $width;
   background-color: $generic-bg;
-  color: #fff !important;
+  color: #fff;
   border: 1px solid transparent;
   margin-right: 5px;
   margin-top: 10px;
@@ -134,11 +134,136 @@ $generic-bg: #db4c3f;
 /* Darkmode
   ============================================ */
 .darkmode {
-  header {
-    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+  background-color: #282828;
+
+  .sidebar {
     background-color: #282828;
-    border-color: transparent;
+    color: white;
+    border-color: grey;
+
+    &__generic {
+      li {
+        color: white;
+        div span svg {
+          color: white;
+        }
+
+        &.active,
+        &:hover {
+          background-color: #202020;
+          color: white;
+        }
+      }
+    }
+
+    &__middle {
+      border-color: grey;
+
+      span {
+        color: white;
+        svg {
+          color: white;
+        }
+      }
+
+      h2 {
+        color: white;
+      }
+    }
+
+    &__project {
+      li {
+        color: white;
+        div span svg {
+          color: white;
+        }
+      }
+
+      &.active,
+      &:hover {
+        background-color: #202020;
+        color: white;
+      }
+    }
+  }
+
+  .project-delete-modal {
+    &__inner {
+      background-color: #282828;
+
+      span {
+        color: white;
+      }
+    }
+  }
+
+  .add-project {
+    &__cancel,
+    &__text {
+      color: white;
+    }
+  }
+
+  .tasks {
+    background-color: #282828;
+    border-color: grey;
+
+    h2 {
+      color: white;
+    }
+
+    &__list li {
+      color: white;
+      border-color: grey;
+    }
+  }
+
+  .add-task {
+    &__overlay {
+      .add-task__main {
+        background: #282828;
+
+        .header,
+        .add-task__cancel-x {
+          color: white;
+        }
+      }
+    }
+
+    &__text,
+    &__cancel,
+    &__project,
+    &__date {
+      color: white;
+    }
+  }
+
+  .project-overlay {
+    background-color: #282828;
+    &__list li {
+      color: white;
+      border-color: #333;
+
+      &.active,
+      &:hover {
+        background-color: #202020;
+        color: white;
+      }
+    }
+  }
+
+  .task-date {
+    background-color: #282828;
+    &__list li {
+      color: white;
+      border-color: #333;
+
+      &.active,
+      &:hover {
+        background-color: #202020;
+        color: white;
+      }
+    }
   }
 }
 
@@ -598,7 +723,7 @@ header {
   &__content {
     width: 100%;
     border: 1px solid #ddd;
-    background-color: white !important;
+    background-color: white;
     border-radius: 3px;
     height: 35px;
     padding-left: 10px;
@@ -709,7 +834,7 @@ header {
   &__name {
     width: 100%;
     border: 1px solid #ddd;
-    background-color: white !important;
+    background-color: white;
     border-radius: 3px;
     height: 35px;
     padding-left: 10px;
